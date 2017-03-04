@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import compose from '../compose';
 
-describe('pure', () => {
+describe('compose', () => {
   it('should work properly', () => {
     const func1 = jest.fn(x => x + 2);
     const func2 = jest.fn(x => x * 3);
