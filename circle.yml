@@ -1,0 +1,10 @@
+machine:
+  node:
+    version: 6.5.0
+  post:
+    - npm install --global yarn
+
+test:
+  pre:
+    - npm i -g jest
+    - yarn install
