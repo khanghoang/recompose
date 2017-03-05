@@ -6,7 +6,7 @@ describe('withState function', () => {
   it('returns a function', () => {
     expect(typeof withState).toBe('function');
   });
-  it('work properly', () => {
+  it('works properly', () => {
     const withStateEnhance = withState('foo', 'setFoo', 'bar');
     const Component = jest.fn(() => null);
     const EnhancedComponent = withStateEnhance(Component);
