@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-export default (stateName, setStateFnName, defaultValue) =>
+export default (stateName, setStateFnName, defaultValue, callbackFn = () => {}) =>
 (BaseComponent) => props => {
   class StatefulComponent extends Component {
     constructor() {
@@ -7,7 +7,7 @@ export default (stateName, setStateFnName, defaultValue) =>
       const setStateFnProp = (val) => {
         this.setState({
           [stateName]: val,
-        });
+        }, callbackFn);
       };
 
       this.state = {
