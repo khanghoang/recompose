@@ -4,9 +4,15 @@ export default (stateName, setStateFnName, defaultValue, callbackFn = () => {}) 
   class StatefulComponent extends Component {
     constructor() {
       super();
+      const serializeSetStateArg = (val) => {
+        if (typeof val === 'function') {
+          return val(this.props);
+        }
+        return val;
+      }
       const setStateFnProp = (val) => {
         this.setState({
-          [stateName]: val,
+          [stateName]: serializeSetStateArg(val),
         }, callbackFn);
       };
 
